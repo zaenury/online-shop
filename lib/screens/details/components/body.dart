@@ -8,6 +8,8 @@ import 'package:online_shop_app/screens/details/components/counter_with_fav_btn.
 import 'package:online_shop_app/screens/details/components/description.dart';
 import 'package:online_shop_app/screens/details/components/product_title_with_image.dart';
 
+import 'add_to_cart.dart';
+
 class Body extends StatelessWidget {
   final Product product;
 
@@ -40,8 +42,12 @@ class Body extends StatelessWidget {
                   child: Column(
                     children: [
                       ColorAndSize(product: product),
+                      SizedBox(height: kDefaultPadding / 2),
                       Description(product: product),
+                      SizedBox(height: kDefaultPadding / 2),
                       CounterWithFavBtn(),
+                      SizedBox(height: kDefaultPadding / 2),
+                      AddToCart(product: product)
                     ],
                   ),
                 ),
