@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/constants.dart';
+import 'package:online_shop_app/models/Product.dart';
 
 import 'categories.dart';
+import 'item_card.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -20,6 +22,22 @@ class Body extends StatelessWidget {
           ),
         ),
         Categories(),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            child: GridView.builder(
+              itemCount: products.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.75,
+                  mainAxisSpacing: kDefaultPadding,
+                  crossAxisSpacing: kDefaultPadding),
+              itemBuilder: (context, index) => ItemCard(
+                product: products[index],
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
